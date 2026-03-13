@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jahnavi THE GYM | Vijayawada</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #ff4757; /* Energetic Red/Pink */
+            --secondary-color: #2f3542;
+            --bg-dark: #1e272e;
+            --bg-darker: #111111;
+            --text-light: #f1f2f6;
+            --text-gray: #a4b0be;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--bg-darker);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: white; }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--primary-color); }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .hero h1 span { color: var(--primary-color); }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+        }
+
+        /* --- EQUIPMENT SECTION --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 4rem 0 1rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+
+        .equipment-container {
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .equip-card {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .equip-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid var(--primary-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .equip-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .equip-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .equip-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* --- INFO & CONTACT SECTION --- */
+        .info-section {
+            background-color: var(--bg-darker);
+            padding: 4rem 5%;
+            margin-top: 4rem;
+        }
+
+        .info-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .info-box {
+            flex: 1;
+            min-width: 300px;
+            background: var(--bg-dark);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .phone-display {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            display: block;
+            margin: 1rem 0;
+        }
+
+        .address-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+            padding: 10px 0;
+        }
+
+        .hours-list span { color: var(--primary-color); font-weight: bold; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: black;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Hide nav links on mobile for simplicity */
+            .logo { font-size: 1.4rem; }
+            .info-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Jahnavi <span>THE GYM</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#equipment">Equipment</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="tel:9032475510" class="cta-btn">Call Now</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Build Your <br><span>Best Self</span></h1>
+        <p>Join the best fitness center in Vijayawada. Premium equipment, expert guidance, and a motivating atmosphere.</p>
+        <a href="#contact" class="cta-btn">Join Today</a>
+    </section>
+
+    <!-- Equipment Section -->
+    <section id="equipment">
+        <h2 class="section-title">Our Equipment</h2>
+        <div class="equipment-container">
+            <div class="equipment-grid">
+                
+                <!-- Cardio -->
+                <div class="equip-card">
+                    <i class="fas fa-running"></i>
+                    <h3>Treadmills</h3>
+                    <p>High-speed motorized treadmills for running and walking.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-bicycle"></i>
+                    <h3>Ellipticals</h3>
+                    <p>Low-impact cardio machines for full-body workout.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-water"></i>
+                    <h3>Rowing Machines</h3>
+                    <p>Water and air resistance rowers for endurance.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Stair Climbers</h3>
+                    <p>Vertical climbing machines for leg strength.</p>
+                </div>
+
+                <!-- Strength Machines -->
+                <div class="equip-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Cable Crossovers</h3>
+                    <p>Pulley systems for isolation exercises.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-chair"></i>
+                    <h3>Bench Press Racks</h3>
+                    <p>Adjustable benches and safety bars.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-weight-hanging"></i>
+                    <h3>Leg Press</h3>
+                    <p>Heavy-duty leg press machines.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Lat Pulldown</h3>
+                    <p>Back training machines.</p>
+                </div>
+
+                <!-- Free Weights -->
+                <div class="equip-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Dumbbells</h3>
+                    <p>Full range from 5lbs to 100lbs.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-bars"></i>
+                    <h3>Barbells</h3>
+                    <p>Olympic and standard bars.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-weight"></i>
+                    <h3>Weight Plates</h3>
+                    <p>Bumper plates and iron plates.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-bomb"></i>
+                    <h3>Kettlebells</h3>
+                    <p>For dynamic functional training.</p>
+                </div>
+
+                <!-- Accessories -->
+                <div class="equip-card">
+                    <i class="fas fa-yin-yang"></i>
+                    <h3>Yoga Zone</h3>
+                    <p>Spacious mats and blocks.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Box Jump</h3>
+                    <p>Wooden plyometric boxes.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Medicine Balls</h3>
+                    <p>Weighted balls for core training.</p>
+                </div>
+                <div class="equip-card">
+                    <i class="fas fa-stopwatch"></i>
+                    <h3>Functional Area</h3>
+                    <p>Sleds, battle ropes, and tires.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Info Section -->
+    <section id="contact" class="info-section">
+        <h2 class="section-title">Visit Us</h2>
+        <div class="info-container">
+            
+            <!-- Contact Info -->
+            <div class="info-box">
+                <h3>Contact Us</h3>
+                <p>Call us to book a free trial session.</p>
+                <a href="tel:9032475510" class="phone-display">
+                    <i class="fas fa-phone-alt"></i> 9032475510
+                </a>
+                <p style="color: var(--text-gray);">Available 24/7 for calls</p>
+            </div>
+
+            <!-- Address Info -->
+            <div class="info-box">
+                <h3>Location</h3>
+                <div class="address-text">
+                    <i class="fas fa-map-marker-alt" style="color:var(--primary-color)"></i> 
+                    Jahnavi THE GYM<br>
+                    West Ibrahimpnam, Ibrahimpnam<br>
+                    Pincode-521456<br>
+                    Hyderabad Highway NH65<br>
+                    Vijayawada, Andhra Pradesh
+                </div>
+            </div>
+
+            <!-- Hours Info -->
+            <div class="info-box">
+                <h3>Opening Hours</h3>
+                <ul class="hours-list">
+                    <li>Monday <span>5:00 AM - 10:00 PM</span></li>
+                    <li>Tuesday <span>5:00 AM - 10:00 PM</span></li>
+                    <li>Wednesday <span>5:00 AM - 10:00 PM</span></li>
+                    <li>Thursday <span>5:00 AM - 10:00 PM</span></li>
+                    <li>Friday <span>5:00 AM - 10:00 PM</span></li>
+                    <li>Saturday <span>5:00 AM - 10:00 PM</span></li>
+                    <li>Sunday <span>5:00 AM - 10:00 PM</span></li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Jahnavi THE GYM. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
